@@ -1,13 +1,11 @@
 from logging.config import fileConfig
-from alembic import context
+
 from sqlalchemy import engine_from_config, pool
 
-from sqlalchemy import pool
-
-from databases.database import Base
-from models import *   # noqa: F403 F401
+from alembic import context
 from config.configs import db_settings
-
+from databases.database import Base
+from models import *  # noqa: F403 F401
 
 config = context.config
 
@@ -22,8 +20,7 @@ def get_url() -> str:
     postgres_password = db_settings.POSTGRES_PASSWORD
     postgres_db = db_settings.POSTGRES_DB
     postgres_port = db_settings.POSTGRES_PORT
-    return f"postgresql://{postgres_user}:{postgres_password}@{postgres_server}:{postgres_port}/{postgres_db}" #noqa: E501
-
+    return f"postgresql://{postgres_user}:{postgres_password}@{postgres_server}:{postgres_port}/{postgres_db}"  # noqa: E501
 
 
 def run_migrations_offline() -> None:
