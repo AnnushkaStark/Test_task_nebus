@@ -37,6 +37,6 @@ class Industry(Base):
     specializations: Mapped[List["Specialization"]] = relationship(
         "Specialization", back_populates="industry"
     )
-    organizations: Mapped[List[Organization]] = relationship(
+    organizations: Mapped[List["Organization"]] = relationship(
         "Organization", back_populates="industry"
     )

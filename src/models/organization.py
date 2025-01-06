@@ -50,13 +50,13 @@ class Organization(Base):
     industry: Mapped["Industry"] = relationship(
         "Industry", back_populates="organizations"
     )
-    address = Mapped["Address"] = relationship(
+    address: Mapped["Address"] = relationship(
         "Address", back_populates="organization"
     )
-    phone_numbers = Mapped[List["Phone"]] = relationship(
+    phone_numbers: Mapped[List["Phone"]] = relationship(
         "Phone", back_populates="organization"
     )
-    specializations = Mapped[List["Specialization"]] = relationship(
+    specializations: Mapped[List["Specialization"]] = relationship(
         "Specialization",
         back_populates="organizations",
         secondary=OrganizationSpecializations.__table__,

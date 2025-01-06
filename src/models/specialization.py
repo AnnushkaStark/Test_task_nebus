@@ -39,12 +39,12 @@ class Specialization(Base):
     )
     name: Mapped[str] = mapped_column(String, index=True, unique=True)
     industry_id: Mapped[int] = mapped_column(
-        Integer, ForeignKey("indusrty.id", ondelete="CASCADE")
+        Integer, ForeignKey("industry.id", ondelete="CASCADE")
     )
     industry: Mapped["Industry"] = relationship(
         "Industry", back_populates="specializations"
     )
-    organizations = Mapped[List["Organization"]] = relationship(
+    organizations: Mapped[List["Organization"]] = relationship(
         "Organization",
         back_populates="specializations",
         secondary=OrganizationSpecializations.__table__,
