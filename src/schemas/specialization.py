@@ -21,11 +21,11 @@ class SpecializationBase(BaseModel):
 
 
 class SpecializationCreate(SpecializationBase):
-    ...
+    industry_id: int
 
 
 class SpecializationCreateDB(SpecializationCreate):
-    industry_id: int
+    ...
 
 
 class SpecializationResponse(SpecializationBase):
