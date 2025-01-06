@@ -26,11 +26,11 @@ class IndustryCreate(IndustryBase):
 
 
 class IndustryResponse(IndustryBase):
+    id: int
     uid: UUID
 
 
 class IndustryFullResponse(IndustryResponse):
-    uid: UUID
     specializations: List[SpecializationResponse] = []
 
 

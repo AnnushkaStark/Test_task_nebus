@@ -27,14 +27,16 @@ class OrganizationBase(BaseModel):
 class OrganizationCreate(OrganizationBase):
     address: AddressCreate
     phone_numbers: List[PhoneCreate] = []
+    industry_id: int
     specializations: List[int] = []
 
 
 class OrganizationCreateDB(OrganizationBase):
-    industry_id: int
+    ...
 
 
 class OrganizationResponse(OrganizationBase):
+    id: int
     uid: UUID
     address: AddressResponse
     phone_numbers: List[PhoneResponse] = []

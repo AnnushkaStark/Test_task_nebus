@@ -29,6 +29,7 @@ class SpecializationCreateDB(SpecializationCreate):
 
 
 class SpecializationResponse(SpecializationBase):
+    id: int
     uid: UUID
 
 
