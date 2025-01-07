@@ -28,10 +28,10 @@ class OrganizationCreate(OrganizationBase):
     address: AddressCreate
     phone_numbers: List[PhoneCreate] = []
     industry_id: int
-    specializations: List[int] = []
+    specializations_ids: List[int] = []
 
 
-class OrganizationCreateDB(OrganizationBase):
+class OrganizationCreateDB(OrganizationCreate):
     ...
 
 
