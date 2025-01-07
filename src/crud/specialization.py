@@ -28,6 +28,15 @@ class SpecializationCRUD(
         result = await db.execute(statement)
         return result.scalars().first()
 
+    async def get_by_id_and_industry_id(
+        self, db: AsyncSession, industry_id: int, obj_id: int
+    ) -> Optional[Specialization]:
+        statement = select(self.model).where(
+            self.model.id == obj_id, self.model.industry_id == industry_id
+        )
+        result = await db.execute(statement)
+        return result.scalars().first()
+
     async def get_mullti_with_total_by_industry_id(
         self,
         db: AsyncSession,
