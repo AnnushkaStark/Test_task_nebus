@@ -21,7 +21,7 @@ class SpecializationCRUD(
         result = await db.execute(statement)
         return result.scalars().first()
 
-    async def get_by_name_and_industry_id(
+    async def get_by_name(
         self, db: AsyncSession, name: str, industry_id: int
     ) -> Optional[Specialization]:
         statement = select(self.model).where(self.model.name == name)
