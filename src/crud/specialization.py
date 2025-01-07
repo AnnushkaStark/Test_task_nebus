@@ -21,6 +21,13 @@ class SpecializationCRUD(
         result = await db.execute(statement)
         return result.scalars().first()
 
+    async def get_by_name_and_industry_id(
+        self, db: AsyncSession, name: str, industry_id: int
+    ) -> Optional[Specialization]:
+        statement = select(self.model).where(self.model.name == name)
+        result = await db.execute(statement)
+        return result.scalars().first()
+
     async def get_mullti_with_total_by_industry_id(
         self,
         db: AsyncSession,
@@ -45,4 +52,4 @@ class SpecializationCRUD(
         }
 
 
-spacialization_crud = SpecializationCRUD(Specialization)
+specialization_crud = SpecializationCRUD(Specialization)
