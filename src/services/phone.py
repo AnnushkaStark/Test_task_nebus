@@ -11,7 +11,7 @@ async def create_multi(
     db: AsyncSession, schemas: List[PhoneCreate], organization_id: int
 ) -> None:
     try:
-        valid_schemas = await validate_multi(schemas=schemas)
+        valid_schemas = await validate_multi(schemas=schemas, db=db)
     except Exception as e:
         raise Exception(str(e))
     if len(valid_schemas) != len(schemas):
@@ -23,4 +23,4 @@ async def create_multi(
         )
         for schema in valid_schemas
     ]
-    await phone_crud.create_bulk(db=db, create_schemas=list_create_data)
+    return await phone_crud.create_bulk(db=db, create_schemas=list_create_data)

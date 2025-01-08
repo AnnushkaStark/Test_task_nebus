@@ -11,7 +11,7 @@ async def create(
 ) -> Specialization:
     create_schema.name = create_schema.name.capitalize()
     if exsisted_name := await specialization_crud.get_by_name(  # noqa: F841
-        db=db, name=create_schema.name
+        db=db, name=create_schema.name, industry_id=create_schema.industry_id
     ):
         raise Exception("Specialization alredy exsists")
     if found_industry := await industry_curd.get_by_id(  # noqa: F841

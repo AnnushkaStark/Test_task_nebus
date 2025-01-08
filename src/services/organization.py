@@ -40,7 +40,6 @@ async def create(
         )
         organozation.specializations = specializations
         await db.commit()
-        return organozation
     except Exception as e:
         await db.rollback()
         raise e
