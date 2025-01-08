@@ -1,7 +1,7 @@
 import uuid
 from typing import TYPE_CHECKING, List
 
-from sqlalchemy import ForeignKey, Integer
+from sqlalchemy import ForeignKey, Integer, String
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -43,7 +43,7 @@ class Organization(Base):
     uid: Mapped[uuid.UUID] = mapped_column(
         UUID, unique=True, index=True, default=uuid.uuid4
     )
-    name: Mapped[str]
+    name: Mapped[str] = mapped_column(String, index=True)
     industry_id: Mapped[int] = mapped_column(
         ForeignKey("industry.id", ondelete="CASCADE")
     )
