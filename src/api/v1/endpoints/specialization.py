@@ -27,7 +27,7 @@ async def read_specializations(
     limit: int = 20,
 ):
     if found_industry := await industry_curd.get_by_uid(
-        db=db, uid=industry_curd
+        db=db, uid=industry_uid
     ):
         return await specialization_crud.get_mullti_with_total_by_industry_id(
             db=db, industry_id=found_industry.id, skip=skip, limit=limit
