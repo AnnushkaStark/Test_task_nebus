@@ -12,5 +12,5 @@ async def check_industry(
     if found_industry := await industry_curd.get_by_id(
         db=db, obj_id=industry_id
     ):
-        return found_industry
+        return found_industry.id
     raise Exception("Industry not found")
