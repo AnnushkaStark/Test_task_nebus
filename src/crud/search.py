@@ -33,15 +33,15 @@ class OrganizationSearchCRUD:
     ) -> Sequence[Organization]:
         statement = (
             select(Organization, func.count().over().label("total"))
-            .offset(skip)
-            .limit(limit)
             .options(
                 joinedload(Organization.industry),
                 joinedload(Organization.specializations),
                 joinedload(Organization.address),
                 joinedload(Organization.phone_numbers),
             )
-            .where(*(Organization.name.ilike(f"%{q}%") for q in query))
+            .filter(*(Organization.name.ilike(f"%{q}%") for q in query))
+            .offset(skip)
+            .limit(limit)
             .order_by(Organization.name)
         )
         result = await db.execute(statement)
@@ -52,3 +52,6 @@ class OrganizationSearchCRUD:
             "total": rows[0]["total"] if rows else 0,
             "objects": [r["Organization"] for r in rows],
         }
+
+
+search_organization_crud = OrganizationSearchCRUD()
