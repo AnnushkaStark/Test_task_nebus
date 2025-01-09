@@ -88,6 +88,14 @@ class OrganizationFilter(Filter):
                     Address.region == filter_address.region
                 )
             if (
+                hasattr(filter_address, "city")
+                and filter_address.city is not None
+            ):
+                statement = statement.join(Address)
+                statement = statement.where(
+                    Address.city == filter_address.city
+                )
+            if (
                 hasattr(filter_address, "street")
                 and filter_address.street is not None
             ):

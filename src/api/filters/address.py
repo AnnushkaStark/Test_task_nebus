@@ -9,6 +9,7 @@ from models import Address
 class AddressFilter(Filter):
     country: Optional[str] = None
     region: Optional[str] = None
+    city: Optional[str] = None
     street: Optional[str] = None
     home_number: Optional[int] = None
     latitude__gte: Optional[decimal.Decimal] = None
