@@ -45,7 +45,6 @@ class OrganizationFilter(Filter):
             self.specializations__in is not None
             and self.specializations__in != []
         ):
-            statement = statement.join(Specialization)
             statement = statement.filter(
                 Organization.specializations.any(
                     Specialization.id.in_(self.specializations__in)
@@ -55,7 +54,6 @@ class OrganizationFilter(Filter):
             self.specializations__not_in is not None
             and self.specializations__not_in != []
         ):
-            statement = statement.join(Specialization)
             statement = statement.filter(
                 ~Organization.specializations.any(
                     Specialization.id.in_(self.specializations__not_in)
