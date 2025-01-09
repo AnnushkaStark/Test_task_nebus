@@ -85,10 +85,18 @@ http://127.0.0.1:8000/organization_service/api/v1/test_data/test_data/organizati
 1. В корневой директории создать файл .env для переменных окружения базы данных
 ```
 POSTGRES_HOST=db
+POSTGRES_DB= db
 POSTGRES_PORT=5432
 POSTGRES_USER=admin
 POSTGRES_PASSWORD=postgres
-POSTGRES_DB=db 
+```
+2. Запустить сервис командой 
+```
+docker-compose up --build
+```
+3. Сваггер будет доступен по адресу 
+```
+http://127.0.0.1:8000/organization_service/docs#
 ```
 
 
