@@ -113,7 +113,6 @@ class OrganizationFilter(Filter):
                 statement = statement.where(
                     Address.latitude >= filter_address.latitude__gte
                 )
-
             if (
                 hasattr(filter_address, "latitude__lte")
                 and filter_address.latitude__lte is not None
