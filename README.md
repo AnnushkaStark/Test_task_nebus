@@ -77,7 +77,7 @@ http://127.0.0.1:8000/organization_service/api/v1/test_data/specializations/
 
 3. Создание тестовых организаций
 ```
-http://127.0.0.12:8000/organization_service/api/v1/test_data/test_data/organizations/
+http://127.0.0.1:8000/organization_service/api/v1/test_data/test_data/organizations/
 ```
 
 ## Запуск проекта
