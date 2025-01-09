@@ -17,7 +17,5 @@ async def create(
     if found_industry := await industry_curd.get_by_id(  # noqa: F841
         db=db, obj_id=create_schema.industry_id
     ):
-        return await specialization_crud.create(
-            db=db, create_schema=create_schema
-        )
+        await specialization_crud.create(db=db, create_schema=create_schema)
     raise Exception("Industry not found!")
